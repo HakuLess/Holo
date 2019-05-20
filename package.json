@@ -1,0 +1,26 @@
+{
+  "name": "holo",
+  "version": "1.0.0",
+  "description": "Holo",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node src/main.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/HakuLess/Holo.git"
+  },
+  "keywords": [
+    "Holo"
+  ],
+  "author": "HaKu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HakuLess/Holo/issues"
+  },
+  "homepage": "https://github.com/HakuLess/Holo#readme",
+  "dependencies": {
+    "@types/node": "^12.0.2",
+    "http": "0.0.0"
+  }
+}
