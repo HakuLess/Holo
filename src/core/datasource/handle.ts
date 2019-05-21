@@ -69,7 +69,6 @@ function readLog(symbol: string): boolean | Stock {
     if (fs.existsSync(cur)) {
         const buffer = fs.readFileSync(cur)
         const data = JSON.parse(buffer.toString())
-        console.log(new Date().getTime() - new Date(data.lastUpdate).getTime())
         // 获取到 毫秒 级别数据，缓存时间1h
         if (new Date().getTime() - new Date(data.lastUpdate).getTime() < 60 * 60 * 1000) {
             return data as Stock
