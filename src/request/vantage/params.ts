@@ -10,10 +10,6 @@ export enum TimeSeries {
     Search = "SYMBOL_SEARCH",
 }
 
-export enum Symbol {
-    TQQQ = "TQQQ",
-}
-
 export enum Interval {
     _1Min = "1min",
     _5Min = "5min",
