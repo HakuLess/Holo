@@ -24,7 +24,13 @@ export async function getStockDetail(symbol): Promise<Stock> {
             price.high = data[seriesKey][day]['2. high']
             price.low = data[seriesKey][day]['3. low']
             price.close = data[seriesKey][day]['4. close']
+            price.rate = (price.close - price.open) / price.open
 
+            const next = stock.prices[stock.prices.length - 1]
+            if (next) {
+                next.realRate = (next.close - price.close) / price.close
+            }
+            // console.log(price.start)
             stock.prices.push(price)
         }
     }

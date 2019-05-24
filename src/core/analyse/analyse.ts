@@ -4,6 +4,7 @@ export function analyse(stock: Stock): string {
     let ans = ''
     ans += base(stock) + '\n'
     ans += point(stock) + '\n'
+    ans += low(stock) + '\n'
     return ans
 }
 
@@ -14,6 +15,28 @@ export function analyse(stock: Stock): string {
  * */
 function base(stock: Stock): string {
     let ans = `${stock.symbol}: 共${stock.prices.length}个交易日`
+    return ans
+}
+
+function low(stock: Stock): string {
+    let ans = ''
+    const prices = stock.prices
+    let upCount = 0
+    let totalCount = 0
+    for (let i = 0; i < prices.length; i++) {
+        if (prices[i].realRate < -0.07) {
+            ans += i + ' ' + prices[i].start + ': ' + prices[i].realRate + '\n'
+            if (prices[i - 1]) {
+                ans += i - 1 + ' The next day：' + prices[i - 1].start + ': ' + prices[i - 1].realRate + '\n'
+                if (prices[i - 1].realRate > 0) {
+                    upCount++
+                }
+                totalCount++
+            }
+        }
+    }
+    ans += `${upCount / totalCount} UP`
+
     return ans
 }
 
